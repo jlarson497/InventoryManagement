@@ -37,13 +37,24 @@ namespace InventoryManagement
         {
             string make = cmbMake.Text;
             string model = cmbModel.Text;
-            string part = cmbPart.Text;
+            string part = "";
             string color = txtColor.Text;
             int quantity = Convert.ToInt16(txtQuantity.Text);
             DateTime currentDateTime = DateTime.Now;
 
+            //conditional for if user selects "Other" part
+            if (cmbPart.Text == "Other")
+            {
+                part = txtOther.Text;
+            }
+            else
+            {
+                part = cmbPart.Text;
+            }
+
             string fullPart = make + " " + model + " " + part + ", " + color + ", Recieved: " + currentDateTime.ToShortDateString();
 
+            
             for (int i = 0; i < quantity; i++)
             {
                 partsList.Add(fullPart);
@@ -79,14 +90,13 @@ namespace InventoryManagement
             partsList.Sort();
         }
 
-
-
-
-
+        //method to clear the form and reset it.  Does not work
+        //as well to reset the combo boxes, but I'll try to figure it out
         private void ClearForm()
         {
             txtColor.Clear();
             txtQuantity.Clear();
+            txtOther.Clear();
             cmbModel.Refresh();
             cmbMake.Refresh();
             cmbPart.ResetText();
@@ -94,6 +104,25 @@ namespace InventoryManagement
 
         }
 
+        //wired to selected index changed for parts combo box to show/hide
+        //the "Other" textboxes and labels
+
+        private void ChangeOtherVisible(object sender, EventArgs e)
+        {
+            if (cmbPart.Text == "Other")
+            {
+                lblOther.Visible = true;
+                txtOther.Visible = true;
+            }
+            else
+            {
+                lblOther.Visible = false;
+                txtOther.Visible = false;
+            }
+        }
+
+        //This method uses a switch to vary which models are available for 
+        //different phone brands
         private void ChangeModelCollection(object sender, EventArgs e)
         {
             cmbModel.Items.Clear();
@@ -131,9 +160,8 @@ namespace InventoryManagement
             UpdateListBox();
             ClearForm();
         }
-        //removes part from global list, clears list box, updates listbox
-
-
+      
+        //sorts global list, clears the box, updates the box
         private void btnSort_Click(object sender, EventArgs e)
         {
             SortList();
@@ -141,12 +169,26 @@ namespace InventoryManagement
             UpdateListBox();
         }
 
+        //event handler for the remove button, removes the part from the 
+        //global list, clears the box, and then updates the box
         private void btnRemove_Click(object sender, EventArgs e)
         {
             RemovePart();
             ClearListBox();
             UpdateListBox();
         }
+
+        private void ChangeOtherVisible()
+        {
+
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+
 
 
 
