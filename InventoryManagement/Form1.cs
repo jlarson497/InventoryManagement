@@ -34,33 +34,53 @@ namespace InventoryManagement
         //Method to add parts takes in the info from the combo and txtboxes
         //and generates a string description of the part, then adds it to the
         //global list
-        private void AddPart()
+
+        private void AddPart(string make, string model, string part, string color, int quantity, DateTime currentDate)
         {
-            string make = cmbMake.Text;
-            string model = cmbModel.Text;
-            string part = "";
-            string color = txtColor.Text;
-            int quantity = Convert.ToInt16(txtQuantity.Text);
-            DateTime currentDateTime = DateTime.Now;
-
-            //conditional for if user selects "Other" part
-            if (cmbPart.Text == "Other")
-            {
-                part = txtOther.Text;
-            }
-            else
-            {
-                part = cmbPart.Text;
-            }
-
-            string fullPart = make + " " + model + " " + part + ", " + color + ", Recieved: " + currentDateTime.ToShortDateString();
-
             
+
+            string fullPart = make + " " + model + " " + part + ", " + color + ", Recieved: " + currentDate;
+
             for (int i = 0; i < quantity; i++)
             {
                 partsList.Add(fullPart);
             }
         }
+
+        /*********************************
+         * OLD METHOD OF ADDPART -- keeping just incase we revert to this way
+         * However, the new way I think will be easier to add test data with
+         * And should function the same, so, you know, we'll probably stick
+         * with that way.
+         * ******************************/
+
+        //private void AddPart()
+        //{
+        //    string make = cmbMake.Text;
+        //    string model = cmbModel.Text;
+        //    string part = "";
+        //    string color = txtColor.Text;
+        //    int quantity = Convert.ToInt16(txtQuantity.Text);
+        //    DateTime currentDateTime = DateTime.Now;
+
+        //    //conditional for if user selects "Other" part
+        //    if (cmbPart.Text == "Other")
+        //    {
+        //        part = txtOther.Text;
+        //    }
+        //    else
+        //    {
+        //        part = cmbPart.Text;
+        //    }
+
+        //    string fullPart = make + " " + model + " " + part + ", " + color + ", Recieved: " + currentDateTime.ToShortDateString();
+
+            
+        //    for (int i = 0; i < quantity; i++)
+        //    {
+        //        partsList.Add(fullPart);
+        //    }
+        //}
 
         //adds each item in the global parts list to the listbox control
         private void UpdateListBox()
@@ -156,7 +176,20 @@ namespace InventoryManagement
         //update the listbox with the new global list
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            AddPart();
+            string part = "";
+            DateTime currentDate = DateTime.Now;
+
+            //conditional for if user selects "Other" part
+            if (cmbPart.Text == "Other")
+            {
+                part = txtOther.Text;
+            }
+            else
+            {
+                part = cmbPart.Text;
+            }
+
+            AddPart(cmbMake.Text, cmbModel.Text, part, txtColor.Text, Convert.ToInt16(txtQuantity.Text), currentDate);
             ClearListBox();
             UpdateListBox();
             ClearForm();
@@ -179,10 +212,7 @@ namespace InventoryManagement
             UpdateListBox();
         }
 
-        private void ChangeOtherVisible()
-        {
 
-        }
 
         private void btnExit_Click(object sender, EventArgs e)
         {

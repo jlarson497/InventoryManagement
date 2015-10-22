@@ -47,6 +47,7 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -154,35 +155,35 @@
             this.lstParts.FormattingEnabled = true;
             this.lstParts.Location = new System.Drawing.Point(15, 188);
             this.lstParts.Name = "lstParts";
-            this.lstParts.Size = new System.Drawing.Size(423, 95);
-            this.lstParts.TabIndex = 10;
+            this.lstParts.Size = new System.Drawing.Size(409, 186);
+            this.lstParts.TabIndex = 11;
             // 
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(15, 147);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 6;
+            this.btnAdd.TabIndex = 7;
             this.btnAdd.Text = "&Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(112, 146);
+            this.btnRemove.Location = new System.Drawing.Point(130, 147);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(75, 23);
-            this.btnRemove.TabIndex = 7;
+            this.btnRemove.TabIndex = 8;
             this.btnRemove.Text = "&Remove";
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnSort
             // 
-            this.btnSort.Location = new System.Drawing.Point(214, 147);
+            this.btnSort.Location = new System.Drawing.Point(245, 147);
             this.btnSort.Name = "btnSort";
             this.btnSort.Size = new System.Drawing.Size(75, 23);
-            this.btnSort.TabIndex = 8;
+            this.btnSort.TabIndex = 9;
             this.btnSort.Text = "&Sort";
             this.btnSort.UseVisualStyleBackColor = true;
             this.btnSort.Click += new System.EventHandler(this.btnSort_Click);
@@ -208,10 +209,10 @@
             // btnExit
             // 
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnExit.Location = new System.Drawing.Point(308, 147);
+            this.btnExit.Location = new System.Drawing.Point(349, 147);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
-            this.btnExit.TabIndex = 9;
+            this.btnExit.TabIndex = 10;
             this.btnExit.Text = "E&xit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -230,8 +231,18 @@
             this.txtSearch.Location = new System.Drawing.Point(264, 97);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(100, 20);
-            this.txtSearch.TabIndex = 17;
+            this.txtSearch.TabIndex = 6;
             this.txtSearch.TextChanged += new System.EventHandler(this.SearchParts);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(242, 120);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(141, 13);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Searches are case sensitive!";
             // 
             // Form1
             // 
@@ -239,7 +250,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(450, 295);
+            this.ClientSize = new System.Drawing.Size(445, 390);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnExit);
@@ -287,6 +299,7 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label label7;
     }
 }
 
