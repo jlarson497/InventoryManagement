@@ -241,6 +241,51 @@ namespace InventoryManagement
             }
         }
 
+        private void LoadSmallTest()
+        {
+            DateTime testDate = DateTime.Now;
+            AddPart("Apple", "iPhone 5C", "Charging Port", "", 3, testDate);
+            AddPart("Samsung", "Galaxy S5", "Display", "Charcoal", 1, testDate);
+            AddPart("Apple", "iPhone 6", "Display", "White", 2, testDate);
+            AddPart("Apple", "iPhone 6", "Battery", "", 2, testDate);
+            AddPart("Nokia", "Lumia 1020", "Power/Lock Button", "Black", 1, testDate);
+        }
+
+        private void LoadLargeTest()
+        {
+            DateTime testDate = DateTime.Now;
+            AddPart("Apple", "iPhone 5C", "Charging Port", "", 3, testDate);
+            AddPart("Samsung", "Galaxy S5", "Display", "Charcoal", 3, testDate);
+            AddPart("Apple", "iPhone 6", "Display", "White", 2, testDate);
+            AddPart("Apple", "iPhone 6", "Battery", "", 2, testDate);
+            AddPart("Nokia", "Lumia 1020", "Power/Lock Button", "Black", 2, testDate);
+            AddPart("Samsung", "Galaxy S4", "Charging Port", "Charcoal", 4, testDate);
+            AddPart("Nokia", "Lumia 1520", "Display", "White", 2, testDate);
+            AddPart("Apple", "iPhone 5S", "Display", "Black", 5, testDate);
+            AddPart("Samsung", "Note IV", "Stylus", "White", 3, testDate);
+            AddPart("Samsung", "Note III", "Home Button", "", 2, testDate);
+            AddPart("Apple", "iPhone 6+", "Display", "White", 2, testDate);
+            AddPart("Apple", "iPhone 6+", "Display", "Black", 2, testDate);
+            AddPart("Nokia", "Lumia 1520", "Battery", "", 2, testDate);
+
+        }
+
+        private void btnSmallTest_Click(object sender, EventArgs e)
+        {
+            LoadSmallTest();
+            ClearListBox();
+            UpdateListBox();
+            ClearForm();
+        }
+
+        private void btnLoadLargeTest_Click(object sender, EventArgs e)
+        {
+            LoadLargeTest();
+            ClearListBox();
+            UpdateListBox();
+            ClearForm();
+        }
+
 
 
 

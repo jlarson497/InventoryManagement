@@ -48,6 +48,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnSmallTest = new System.Windows.Forms.Button();
+            this.btnLoadLargeTest = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -244,13 +246,35 @@
             this.label7.TabIndex = 18;
             this.label7.Text = "Searches are case sensitive!";
             // 
+            // btnSmallTest
+            // 
+            this.btnSmallTest.Location = new System.Drawing.Point(15, 377);
+            this.btnSmallTest.Name = "btnSmallTest";
+            this.btnSmallTest.Size = new System.Drawing.Size(118, 23);
+            this.btnSmallTest.TabIndex = 19;
+            this.btnSmallTest.Text = "Load Small Test List";
+            this.btnSmallTest.UseVisualStyleBackColor = true;
+            this.btnSmallTest.Click += new System.EventHandler(this.btnSmallTest_Click);
+            // 
+            // btnLoadLargeTest
+            // 
+            this.btnLoadLargeTest.Location = new System.Drawing.Point(140, 377);
+            this.btnLoadLargeTest.Name = "btnLoadLargeTest";
+            this.btnLoadLargeTest.Size = new System.Drawing.Size(118, 23);
+            this.btnLoadLargeTest.TabIndex = 20;
+            this.btnLoadLargeTest.Text = "Load Large Test List";
+            this.btnLoadLargeTest.UseVisualStyleBackColor = true;
+            this.btnLoadLargeTest.Click += new System.EventHandler(this.btnLoadLargeTest_Click);
+            // 
             // Form1
             // 
             this.AcceptButton = this.btnAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(445, 390);
+            this.ClientSize = new System.Drawing.Size(445, 412);
+            this.Controls.Add(this.btnLoadLargeTest);
+            this.Controls.Add(this.btnSmallTest);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label6);
@@ -300,6 +324,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnSmallTest;
+        private System.Windows.Forms.Button btnLoadLargeTest;
     }
 }
 
