@@ -45,6 +45,8 @@
             this.txtOther = new System.Windows.Forms.TextBox();
             this.lblOther = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -110,7 +112,7 @@
             // 
             this.cmbModel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbModel.FormattingEnabled = true;
-            this.cmbModel.Location = new System.Drawing.Point(259, 13);
+            this.cmbModel.Location = new System.Drawing.Point(264, 13);
             this.cmbModel.Name = "cmbModel";
             this.cmbModel.Size = new System.Drawing.Size(96, 21);
             this.cmbModel.TabIndex = 1;
@@ -187,7 +189,7 @@
             // 
             // txtOther
             // 
-            this.txtOther.Location = new System.Drawing.Point(259, 40);
+            this.txtOther.Location = new System.Drawing.Point(264, 40);
             this.txtOther.Name = "txtOther";
             this.txtOther.Size = new System.Drawing.Size(100, 20);
             this.txtOther.TabIndex = 3;
@@ -214,6 +216,23 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(211, 100);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(47, 13);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Search: ";
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(264, 97);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(100, 20);
+            this.txtSearch.TabIndex = 17;
+            this.txtSearch.TextChanged += new System.EventHandler(this.SearchParts);
+            // 
             // Form1
             // 
             this.AcceptButton = this.btnAdd;
@@ -221,6 +240,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(450, 295);
+            this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.lblOther);
             this.Controls.Add(this.txtOther);
@@ -264,6 +285,8 @@
         private System.Windows.Forms.TextBox txtOther;
         private System.Windows.Forms.Label lblOther;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtSearch;
     }
 }
 

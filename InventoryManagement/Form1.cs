@@ -28,6 +28,7 @@ namespace InventoryManagement
         //changes are made to this list and then this list is
         //displayed in the listbox control
         List<string> partsList = new List<string> { };
+        List<string> searchList = new List<string> { };
       
 
         //Method to add parts takes in the info from the combo and txtboxes
@@ -186,6 +187,28 @@ namespace InventoryManagement
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+
+        //Search method for the parts list
+        private void SearchParts(object sender, EventArgs e)
+        {
+            searchList.Clear();
+            string searchString = txtSearch.Text;
+
+            foreach (string part in partsList)
+            {
+                if (part.Contains(searchString))
+                {
+                    searchList.Add(part);
+                }
+            }
+
+            ClearListBox();
+            foreach (string part in searchList)
+            {
+                lstParts.Items.Add(part);
+            }
         }
 
 
