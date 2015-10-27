@@ -38,7 +38,6 @@ namespace InventoryManagement
         private void AddPart(string make, string model, string part, string color, int quantity, DateTime currentDate)
         {
             
-
             string fullPart = make + " " + model + " " + part + ", " + color + ", Recieved: " + currentDate;
 
             for (int i = 0; i < quantity; i++)
@@ -176,6 +175,10 @@ namespace InventoryManagement
         //update the listbox with the new global list
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if (!isValidForm())
+            {
+                return;
+            }
             string part = "";
             DateTime currentDate = DateTime.Now;
 
@@ -240,6 +243,96 @@ namespace InventoryManagement
                 lstParts.Items.Add(part);
             }
         }
+
+        //data validation for textbox presence
+        //extra logic for if the textbox is the color textbox
+        public bool isPresentTextBox(TextBox textbox, string name)
+        {
+            if (textbox == txtColor)
+            {
+                if (textbox.Text == "")
+                {
+                    MessageBox.Show(name + " is a required field.  Enter N/A if not applicable.", "Error");
+                    textbox.Clear();
+                    textbox.Focus();
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                if (textbox.Text == "")
+                {
+                    MessageBox.Show(name + " is a required field", "Error");
+                    textbox.Clear();
+                    textbox.Focus();
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        //presence validation for if a combo box is selected
+        public bool isSelected(ComboBox combobox, string name)
+        {
+            if (combobox.SelectedIndex < 0)
+            {
+                MessageBox.Show(name + " must be selected", "Error");
+                combobox.Refresh();
+                combobox.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        //Data type validation for INT
+        public bool IsInt(TextBox textbox, string name)
+        {
+            int number = 0;
+            if (int.TryParse(textbox.Text, out number))
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show(name + " must be an integer.", "Entry Error");
+                textbox.Clear();
+                textbox.Focus();
+                return false;
+            }
+
+        }
+
+        //Range Validation
+        private bool IsWithinRange(TextBox textbox, string name, decimal min, decimal max)
+        {
+            decimal number = Convert.ToDecimal(textbox.Text);
+            if (number > max || number < min)
+            {
+                MessageBox.Show(name + " must be between " + min.ToString() + " and " + max.ToString(), "Entry Error");
+                textbox.Clear();
+                textbox.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        //Form Validation
+        private bool isValidForm()
+        {
+            return
+                isSelected(cmbMake, "Make") && isSelected(cmbModel, "Model") && isSelected(cmbPart, "Part") &&
+                isPresentTextBox(txtColor, "Color") &&
+                isPresentTextBox(txtQuantity, "Quantity") && IsInt(txtQuantity, "Quantity") && IsWithinRange(txtQuantity, "Quantity", 0, 10);
+                
+        }
+
 
 
         //Test Data

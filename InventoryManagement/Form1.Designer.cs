@@ -144,6 +144,7 @@
             this.txtColor.Name = "txtColor";
             this.txtColor.Size = new System.Drawing.Size(96, 20);
             this.txtColor.TabIndex = 4;
+            this.txtColor.Text = "N/A";
             // 
             // txtQuantity
             // 
@@ -272,7 +273,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(445, 412);
+            this.ClientSize = new System.Drawing.Size(446, 413);
             this.Controls.Add(this.btnLoadLargeTest);
             this.Controls.Add(this.btnSmallTest);
             this.Controls.Add(this.label7);
