@@ -100,7 +100,7 @@ namespace InventoryManagement
         private void RemovePart()
         {
             int index = lstParts.SelectedIndex;
-            partsList.RemoveAt(index);
+            partsList.RemoveAt(index);        
         }
 
         //clears all the items in the listbox

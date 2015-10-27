@@ -163,7 +163,7 @@
             this.lstParts.Location = new System.Drawing.Point(15, 188);
             this.lstParts.Name = "lstParts";
             this.lstParts.Size = new System.Drawing.Size(492, 186);
-            this.lstParts.TabIndex = 11;
+            this.lstParts.TabIndex = 10;
             this.lstParts.SelectedIndexChanged += new System.EventHandler(this.DisplayDaysInStock);
             // 
             // btnAdd
@@ -220,7 +220,7 @@
             this.btnExit.Location = new System.Drawing.Point(432, 377);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
-            this.btnExit.TabIndex = 10;
+            this.btnExit.TabIndex = 13;
             this.btnExit.Text = "E&xit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -257,7 +257,7 @@
             this.btnSmallTest.Location = new System.Drawing.Point(15, 377);
             this.btnSmallTest.Name = "btnSmallTest";
             this.btnSmallTest.Size = new System.Drawing.Size(118, 23);
-            this.btnSmallTest.TabIndex = 19;
+            this.btnSmallTest.TabIndex = 11;
             this.btnSmallTest.Text = "Load Small Test List";
             this.btnSmallTest.UseVisualStyleBackColor = true;
             this.btnSmallTest.Click += new System.EventHandler(this.btnSmallTest_Click);
@@ -267,7 +267,7 @@
             this.btnLoadLargeTest.Location = new System.Drawing.Point(140, 377);
             this.btnLoadLargeTest.Name = "btnLoadLargeTest";
             this.btnLoadLargeTest.Size = new System.Drawing.Size(118, 23);
-            this.btnLoadLargeTest.TabIndex = 20;
+            this.btnLoadLargeTest.TabIndex = 12;
             this.btnLoadLargeTest.Text = "Load Large Test List";
             this.btnLoadLargeTest.UseVisualStyleBackColor = true;
             this.btnLoadLargeTest.Click += new System.EventHandler(this.btnLoadLargeTest_Click);
