@@ -99,8 +99,17 @@ namespace InventoryManagement
         //remove the selected part
         private void RemovePart()
         {
+            if (lstParts.SelectedIndex < 0)
+            {
+                MessageBox.Show("You must select an item to remove", "Error");
+                return;
+            }
+            else
+            {
             int index = lstParts.SelectedIndex;
-            partsList.RemoveAt(index);        
+
+            partsList.RemoveAt(index);   
+            }
         }
 
         //clears all the items in the listbox
