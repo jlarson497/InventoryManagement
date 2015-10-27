@@ -9,7 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 /****************************************************************************
  * This is an inventory management system that tracks phone parts for a
- * retail/repair store.  It is under development.
+ * retail/repair store.  You can use the drop down boxes to select makes, models, and parts,
+ * and textboxes for colors and quantity.  The list can be sorted, and parts removed.
+ * Instead of displaying each item once with a quantity as part of the display, the list iterates 
+ * a part listing for each quantity -- 3 screens showup as the particular brand and model of screen 3 times.  
+ * Since we didn't use a class, we found that this may have been the best way.  There is also a search 
+ * function, since due to the nature of the way we are displaying the inventory, the list can get quite 
+ * long.  There is a date-dif counter that shows how long a part has been in stock in the lower left.
  *
  * Produced by: Joseph Larson, Michael Williams, Arbin Rai
  * **************************************************************************/
@@ -37,8 +43,8 @@ namespace InventoryManagement
 
         private void AddPart(string make, string model, string part, string color, int quantity, DateTime currentDate)
         {
-            
-            string fullPart = make + " " + model + " " + part + ", " + color + ", Recieved: " + currentDate;
+            string shortCurrentDate = currentDate.ToShortDateString();
+            string fullPart = make + " " + model + " " + part + ", " + color + ", Recieved: " + shortCurrentDate;
 
             for (int i = 0; i < quantity; i++)
             {
@@ -244,6 +250,29 @@ namespace InventoryManagement
             }
         }
 
+        //Method to get the number of days we've had a part in stock
+        //creates a variable with the current date.
+        //Gets the date string from the full string in the list, which begins after the last ":"
+        //
+        private int GetDateDif()
+        {
+            DateTime currentDate = DateTime.Now;
+            int index = lstParts.SelectedIndex;
+            string stringToDif = partsList.ElementAt(index);
+
+            string dateString = stringToDif.Substring(stringToDif.LastIndexOf(":") + 1);
+            DateTime dayRecieved = Convert.ToDateTime(dateString);
+
+            TimeSpan inStockTimeSpan = currentDate.Subtract(dayRecieved);
+            int daysInStock = inStockTimeSpan.Days;
+
+            return daysInStock;
+
+
+        }
+
+        
+
         //data validation for textbox presence
         //extra logic for if the textbox is the color textbox
         public bool isPresentTextBox(TextBox textbox, string name)
@@ -332,36 +361,46 @@ namespace InventoryManagement
                 isPresentTextBox(txtQuantity, "Quantity") && IsInt(txtQuantity, "Quantity") && IsWithinRange(txtQuantity, "Quantity", 0, 10);
                 
         }
-
-
+        
 
         //Test Data
+        //Method for adding test data is slightly different so that previous dates can be entered
+        private void AddTestPart(string make, string model, string part, string color, int quantity, string dayRecieved)
+        {
+
+            string fullPart = make + " " + model + " " + part + ", " + color + ", Recieved: " + dayRecieved;
+
+            for (int i = 0; i < quantity; i++)
+            {
+                partsList.Add(fullPart);
+            }
+        }
         private void LoadSmallTest()
         {
             DateTime testDate = DateTime.Now;
-            AddPart("Apple", "iPhone 5C", "Charging Port", "", 3, testDate);
-            AddPart("Samsung", "Galaxy S5", "Display", "Charcoal", 1, testDate);
-            AddPart("Apple", "iPhone 6", "Display", "White", 2, testDate);
-            AddPart("Apple", "iPhone 6", "Battery", "", 2, testDate);
-            AddPart("Nokia", "Lumia 1020", "Power/Lock Button", "Black", 1, testDate);
+            AddTestPart("Apple", "iPhone 5C", "Charging Port", "N/A", 3, "12/1/2014");
+            AddTestPart("Samsung", "Galaxy S5", "Display", "Charcoal", 1, "3/14/2015");
+            AddTestPart("Apple", "iPhone 6", "Display", "White", 2, "10/2/2015");
+            AddTestPart("Apple", "iPhone 6", "Battery", "N/A", 2, "9/9/2015");
+            AddTestPart("Nokia", "Lumia 1020", "Power/Lock Button", "Black", 1, "6/7/2014");
         }
 
         private void LoadLargeTest()
         {
             DateTime testDate = DateTime.Now;
-            AddPart("Apple", "iPhone 5C", "Charging Port", "", 3, testDate);
-            AddPart("Samsung", "Galaxy S5", "Display", "Charcoal", 3, testDate);
-            AddPart("Apple", "iPhone 6", "Display", "White", 2, testDate);
-            AddPart("Apple", "iPhone 6", "Battery", "", 2, testDate);
-            AddPart("Nokia", "Lumia 1020", "Power/Lock Button", "Black", 2, testDate);
-            AddPart("Samsung", "Galaxy S4", "Charging Port", "Charcoal", 4, testDate);
-            AddPart("Nokia", "Lumia 1520", "Display", "White", 2, testDate);
-            AddPart("Apple", "iPhone 5S", "Display", "Black", 5, testDate);
-            AddPart("Samsung", "Note IV", "Stylus", "White", 3, testDate);
-            AddPart("Samsung", "Note III", "Home Button", "", 2, testDate);
-            AddPart("Apple", "iPhone 6+", "Display", "White", 2, testDate);
-            AddPart("Apple", "iPhone 6+", "Display", "Black", 2, testDate);
-            AddPart("Nokia", "Lumia 1520", "Battery", "", 2, testDate);
+            AddTestPart("Apple", "iPhone 5C", "Charging Port", "N/A", 3, "12/1/2014");
+            AddTestPart("Samsung", "Galaxy S5", "Display", "Charcoal", 1, "3/14/2014");
+            AddTestPart("Apple", "iPhone 6", "Display", "White", 2, "10/2/2015");
+            AddTestPart("Apple", "iPhone 6", "Battery", "N/A", 2, "9/9/2015");
+            AddTestPart("Nokia", "Lumia 1020", "Power/Lock Button", "Black", 1, "6/7/2014");
+            AddTestPart("Samsung", "Galaxy S4", "Charging Port", "Charcoal", 4, "1/17/2015");
+            AddTestPart("Nokia", "Lumia 1520", "Display", "White", 2, "5/9/2015");
+            AddTestPart("Apple", "iPhone 5S", "Display", "Black", 5, "7/11/2015");
+            AddTestPart("Samsung", "Note IV", "Stylus", "White", 3, "8/16/2014");
+            AddTestPart("Samsung", "Note III", "Home Button", "Black", 2, "2/14/2015");
+            AddTestPart("Apple", "iPhone 6+", "Display", "White", 2, "10/26/2015");
+            AddTestPart("Apple", "iPhone 6+", "Display", "Black", 2, "9/18/2015");
+            AddTestPart("Nokia", "Lumia 1520", "Battery", "N/A", 2, "8/8/2015");
 
         }
 
@@ -379,6 +418,11 @@ namespace InventoryManagement
             ClearListBox();
             UpdateListBox();
             ClearForm();
+        }
+
+        private void DisplayDaysInStock(object sender, EventArgs e)
+        {
+            txtDaysInStock.Text = Convert.ToString(GetDateDif());
         }
 
 
