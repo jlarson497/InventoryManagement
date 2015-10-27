@@ -161,17 +161,20 @@ namespace InventoryManagement
                 cmbModel.Items.Add("iPhone 5S");
                 cmbModel.Items.Add("iPhone 6");
                 cmbModel.Items.Add("iPhone 6+");
+                picPhone.BackgroundImage = Properties.Resources.Apple;
                 break;
                 case "Samsung":
                 cmbModel.Items.Add("Galaxy S4");
                 cmbModel.Items.Add("Galaxy S5");
                 cmbModel.Items.Add("Galaxy Note III");
                 cmbModel.Items.Add("Galaxy Note IV");
+                picPhone.BackgroundImage = Properties.Resources.Samsung;
                 break;
                 case "Nokia":
                 cmbModel.Items.Add("Lumia 925");
                 cmbModel.Items.Add("Lumia 1020");
                 cmbModel.Items.Add("Lumia 1520");
+                picPhone.BackgroundImage = Properties.Resources.Nokia;
 
                 break;
             }

@@ -52,6 +52,8 @@
             this.btnLoadLargeTest = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.txtDaysInStock = new System.Windows.Forms.TextBox();
+            this.picPhone = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picPhone)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -160,7 +162,7 @@
             this.lstParts.FormattingEnabled = true;
             this.lstParts.Location = new System.Drawing.Point(15, 188);
             this.lstParts.Name = "lstParts";
-            this.lstParts.Size = new System.Drawing.Size(409, 186);
+            this.lstParts.Size = new System.Drawing.Size(492, 186);
             this.lstParts.TabIndex = 11;
             this.lstParts.SelectedIndexChanged += new System.EventHandler(this.DisplayDaysInStock);
             // 
@@ -215,7 +217,7 @@
             // btnExit
             // 
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnExit.Location = new System.Drawing.Point(349, 147);
+            this.btnExit.Location = new System.Drawing.Point(432, 377);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 10;
@@ -273,7 +275,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(296, 382);
+            this.label8.Location = new System.Drawing.Point(284, 382);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(80, 13);
             this.label8.TabIndex = 21;
@@ -281,12 +283,21 @@
             // 
             // txtDaysInStock
             // 
-            this.txtDaysInStock.Location = new System.Drawing.Point(382, 379);
+            this.txtDaysInStock.Location = new System.Drawing.Point(370, 379);
             this.txtDaysInStock.Name = "txtDaysInStock";
             this.txtDaysInStock.ReadOnly = true;
             this.txtDaysInStock.Size = new System.Drawing.Size(42, 20);
             this.txtDaysInStock.TabIndex = 22;
             this.txtDaysInStock.TabStop = false;
+            // 
+            // picPhone
+            // 
+            this.picPhone.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picPhone.Location = new System.Drawing.Point(383, 13);
+            this.picPhone.Name = "picPhone";
+            this.picPhone.Size = new System.Drawing.Size(124, 104);
+            this.picPhone.TabIndex = 23;
+            this.picPhone.TabStop = false;
             // 
             // Form1
             // 
@@ -294,7 +305,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(446, 413);
+            this.ClientSize = new System.Drawing.Size(519, 413);
+            this.Controls.Add(this.picPhone);
             this.Controls.Add(this.txtDaysInStock);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnLoadLargeTest);
@@ -321,6 +333,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Inventory Management";
+            ((System.ComponentModel.ISupportInitialize)(this.picPhone)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -352,6 +365,7 @@
         private System.Windows.Forms.Button btnLoadLargeTest;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtDaysInStock;
+        private System.Windows.Forms.PictureBox picPhone;
     }
 }
 
